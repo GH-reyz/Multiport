@@ -115,7 +115,7 @@ domain=$(cat /root/domain)
 # // nginx status
 nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
 if [[ $nginx == "running" ]]; then
-    status_nginx="${GREEN}ON${NC}"
+    status_nginx="${GREEN}✓${NC}"
 else
     status_nginx="${RED}OFF${NC}"
 fi
@@ -123,7 +123,7 @@ fi
 # // xray status
 xray=$( systemctl status xray | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
 if [[ $xray == "running" ]]; then
-    status_xray="${GREEN}ON${NC}"
+    status_xray="${GREEN}✓${NC}"
 else
     status_xray="${RED}OFF${NC}"
 fi
@@ -178,16 +178,17 @@ echo -e " CPU Load           :  $load_cpu"
 echo -e " VPN Core           :  XRAY-CORE"
 echo -e " Domain             :  $domain"
 echo -e " IP Address         :  $IPVPS"
+echo -e " Version            :  Multiport"
+echo -e " Telegram           :  @GHReyz"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
 echo -e "     [ XRAY-CORE${NC} : ${status_xray} ]   [ NGINX${NC} : ${status_nginx} ]"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
-echo -e "      \033[1;37mMULTIPORT WEBSOCKET BY GH-reyz\033[0m"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
 echo -e " Daily Data Usage   :  ${yell}$daily_usage${N}"
 echo -e " Monthly Data Usage :  ${yell}$monthly_usage${N}"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " \E[0;41;36m                 XRAY MENU                  \E[0m"
+echo -e " \E[0;41;36m                 Xray Menu                  \E[0m"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m
  [\033[1;36m•1 \033[0m]  XRAY Vmess WS Panel
  [\033[1;36m•2 \033[0m]  XRAY Vless WS Panel
@@ -196,7 +197,7 @@ echo -e "\e[36m╘════════════════════�
  [\033[1;36m•5 \033[0m]  XRAY Trojan TCP Panel
  [\033[1;36m•6 \033[0m]  WSS Converter Panel"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " \E[0;41;36m                OTHERS MENU                 \E[0m"
+echo -e " \E[0;41;36m                Others Menu                 \E[0m"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m
  [\033[1;36m•7 \033[0m]  Install Ads Block
  [\033[1;36m•8 \033[0m]  Install TCP BBR
@@ -205,19 +206,19 @@ echo -e "\e[36m╘════════════════════�
  [\033[1;36m•11\033[0m]  Netflix Checker
  [\033[1;36m•12\033[0m]  Limit Bandwith Speed"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " \E[0;41;36m                SYSTEM MENU                 \E[0m"
+echo -e " \E[0;41;36m                System Menu                 \E[0m"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m
  [\033[1;36m•13\033[0m]  Change Domain
- [\033[1;36m•14\033[0m]  Renew Certificate XRAY
+ [\033[1;36m•14\033[0m]  Renew Certificate 
  [\033[1;36m•15\033[0m]  Check VPN Status
  [\033[1;36m•16\033[0m]  Check VPN Port
- [\033[1;36m•17\033[0m]  Restart VPN Services
+ [\033[1;36m•17\033[0m]  Restart VPN 
  [\033[1;36m•18\033[0m]  Speedtest VPS
  [\033[1;36m•19\033[0m]  Check RAM
  [\033[1;36m•20\033[0m]  Check Bandwith
- [\033[1;36m•21\033[0m]  Backup
- [\033[1;36m•22\033[0m]  Restore
- [\033[1;36m•23\033[0m]  Reboot
+ [\033[1;36m•21\033[0m]  Backup VPS
+ [\033[1;36m•22\033[0m]  Restore VPS
+ [\033[1;36m•23\033[0m]  Reboot VPS
 "
 if [[ $serverV > $myver ]]; then
 echo -e " [\033[1;36m•24\033[0m]  Update Autoscript To V$serverV\n"
@@ -228,7 +229,7 @@ fi
 echo -e " \033[1;37mType [ x ] To Exit From Menu \033[0m"
 echo ""
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " Version       :\033[1;36m Multiport Websocket $myver\e[0m"
+echo -e " Version       :\033[1;36m Multiport $myver\e[0m"
 echo -e " Client Name   : $Name"
 echo -e " Expiry Script : $Exp"
 echo -e " Status Script : ${G}Lifetime${NC}"
